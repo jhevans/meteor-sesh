@@ -17,10 +17,12 @@ Format:
 	+ Full stack out of the box
 	+ JS all the way down
 	+ Reactivity
-		# TODO: Flesh out the scope, meaning and implications of this
+		# TODO: Flesh out the scope, meaning and implications of this, read up on blaze/spacebars
+	+ Magic!
+	- Witchcraft!
 	- Optimistic UI can and does cause strange anomalies when things go wrong
 		# TODO: Find out if it's possible to disable OUI
-	+/- Blurs the boundary between client and server
+	- Blurs the boundary between client and server
 	- Gotcha's due to client and server separation
 		# TODO: Find examples
 	- Globals are prevalent
