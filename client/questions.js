@@ -1,29 +1,27 @@
 
-Session.set('questions', [
-    {text: "Is this going to work?"},
-    {text: "If not why not?"}
-]);
-
-
 Template.questions.helpers({
     questions: function () {
-        return Session.get('questions');
+        return Questions.find({}, {sort: {created: -1}})
     }
 });
 
-Template.body.events({
+Template.questions.events({
     "submit .new-question": function(event){
         event.preventDefault();
 
-        var questions = Session.get('questions');
         var newQuestion = {
-            text: event.target.text.value
+            text: event.target.text.value,
+            created: new Date()
         };
 
-        questions.push(newQuestion);
-
-        Session.set('questions', questions);
+        Questions.insert(newQuestion);
 
         event.target.text.value = "";
     }
 });
+
+Template.question.events({
+    "click .delete": function(){
+        Questions.remove(this._id)
+    }
+})
