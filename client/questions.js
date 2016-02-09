@@ -14,7 +14,7 @@ Template.questions.events({
             created: new Date()
         };
 
-        Questions.insert(newQuestion);
+        Meteor.call("addQuestion", newQuestion);
 
         event.target.text.value = "";
     }
@@ -22,6 +22,6 @@ Template.questions.events({
 
 Template.question.events({
     "click .delete": function(){
-        Questions.remove(this._id)
+        Meteor.call("deleteQuestion", this._id);
     }
 })
