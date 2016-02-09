@@ -8,12 +8,18 @@
 </body>
 
 <template name="questions">
-    {{#each question in questions}}
-      <p>{{question.text}}</p>
+    {{#each questions}}
+        {{> question}}
     {{/each}}
 
     <form class="new-question">
         <label for="text">Ask a new question:</label>
         <input type="text" name="text">
     </form>
+</template>
+
+<template name="question">
+    
+      <p>{{text}}</p>
+      <button type="button" name="button" class="delete">X</button>
 </template>
