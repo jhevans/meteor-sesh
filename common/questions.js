@@ -1,4 +1,5 @@
 Questions = new Mongo.Collection("questions");
+Subjects = new Mongo.Collection("subjects");
 
 Meteor.methods({
     "deleteQuestion": function(questionId){
@@ -14,5 +15,11 @@ Meteor.methods({
         //    }
         //}
         Questions.insert(question);
+    },
+    "addSubject": function(subject){
+        Subjects.insert(subject);
+    },
+    "deleteSubject": function(subjectId){
+        Subjects.remove(subjectId);
     }
 });

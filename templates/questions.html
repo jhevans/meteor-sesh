@@ -5,6 +5,9 @@
 <body>
   <h1>Meteor Session Questions</h1>
   {{> questions}}
+  <br>
+  <h1>Subject Suggestions</h1>
+  {{> subjects}}
 </body>
 
 <template name="questions">
@@ -23,4 +26,23 @@
       <!--<h1>{{random}}</h1>-->
       <p>{{text}}</p>
       <button type="button" name="button" class="delete">X</button>
+</template>
+
+<template name="subjects">
+    {{#each subjects}}
+        {{> subject}}
+    {{/each}}
+
+    <form class="new-subject">
+        <label for="subject">Suggest a new subject:</label>
+        <input type="text" name="subject" id="subject">
+        <label for="volunteer">Volunteer someone:</label>
+        <input type="text" name="volunteer" id="volunteer">
+        <button type="submit">Submit</button>
+    </form>
+</template>
+
+<template name="subject">
+    <p>{{subject}}{{#if volunteer}} (Volunteered by {{volunteer}}){{/if}}</p>
+    <button type="button" name="button" class="delete">X</button>
 </template>
