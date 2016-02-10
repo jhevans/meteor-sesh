@@ -3,11 +3,18 @@
 </head>
 
 <body>
-  <h1>Meteor Session Questions</h1>
-  {{> questions}}
-  <br>
-  <h1>Subject Suggestions</h1>
-  {{> subjects}}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>Meteor Session Questions</h1>
+                {{> questions}}
+            </div>
+            <div class="col-xs-6">
+                <h1>Subject Suggestions</h1>
+                {{> subjects}}
+            </div>
+        </div>
+    </div>
 </body>
 
 <template name="questions">
@@ -24,25 +31,29 @@
 <template name="question">
 
       <!--<h1>{{random}}</h1>-->
-      <p>{{text}}</p>
-      <button type="button" name="button" class="delete">X</button>
+      <li>{{text}}<button type="button" name="button"  class="btn btn-sm btn-danger delete">X</button></li>
 </template>
 
 <template name="subjects">
     {{#each subjects}}
-        {{> subject}}
+        <ul>
+            {{> subject}}
+        </ul>
     {{/each}}
 
     <form class="new-subject">
-        <label for="subject">Suggest a new subject:</label>
-        <input type="text" name="subject" id="subject">
-        <label for="volunteer">Volunteer someone:</label>
-        <input type="text" name="volunteer" id="volunteer">
-        <button type="submit">Submit</button>
+        <div class="form-group">
+            <label for="subject">Suggest a new subject:</label>
+            <input type="text" name="subject" id="subject">
+        </div>
+        <div class="form-group">
+            <label for="volunteer">Volunteer someone:</label>
+            <input type="text" name="volunteer" id="volunteer">
+        </div>
+        <button type="submit" class="btn btn-sm btn-success">Submit</button>
     </form>
 </template>
 
 <template name="subject">
-    <p>{{subject}}{{#if volunteer}} (Volunteered by {{volunteer}}){{/if}}</p>
-    <button type="button" name="button" class="delete">X</button>
+    <li>{{subject}}{{#if volunteer}} (Volunteered by {{volunteer}}){{/if}}<button type="button" name="button" class="btn btn-sm btn-danger delete">X</button></li>
 </template>
